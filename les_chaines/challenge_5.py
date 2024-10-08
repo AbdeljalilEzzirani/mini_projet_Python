@@ -1,17 +1,19 @@
 files = ["log_2023.txt", "log_2024.csv", "report_2023.pdf", "data_2024.csv", "log_2025.csv"]
 
-i = 0
-length = len(files)
-files_log = []
-files_csv = []
-while i < length:
-    if files[i].startswith('log_'):
-            files_log.append(files[i])
-    if files[i].endswith('.csv'):
-        files_csv.append(files[i])
-    i += 1
+def verification(files):
+    i = 0
+    length = len(files)
+    files_log = []
+    files_csv = []
+    while i < length:
+        if files[i].startswith('log_'):
+                files_log.append(files[i])
+        if files[i].endswith('.csv'):
+            files_csv.append(files[i])
+        i += 1
+    return files_log, files_csv
 
-
+files_log, files_csv = verification(files)
 
 
 print(" \n ---> Files commençant par 'log_':")

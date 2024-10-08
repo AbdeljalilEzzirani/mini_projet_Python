@@ -1,7 +1,0 @@
-texte = "ana machii ana wakha ana raah howa ana mais ana dima machii ana hit ana dima howa ana"
-
-print ("\n -->> texte before changement de mot :", texte)
-
-text_result = texte.replace("ana", "howa", -1)
-
-print ("\n -->> texte after changement de mot :", text_result)  
