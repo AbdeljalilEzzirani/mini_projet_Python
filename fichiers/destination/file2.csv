@@ -1,0 +1,3 @@
+Travail à faire :
+Utilisez os.listdir() pour lister tous les fichiers dans un répertoire source.
+Utilisez shutil.copy() pour copier uniquement les fichiers avec une extension spécifique (par exemple, .csv) vers un répertoire de destination.

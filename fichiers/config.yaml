@@ -1,0 +1,5 @@
+# Challenge : Recherche de Fichiers
+# Objectif : Vérifier l'existence de fichiers spécifiques et les traiter.
+# Travail à faire :
+# Utilisez os.path.exists() pour vérifier si des fichiers de configuration (config.yaml) existent dans un répertoire donné.
+# Si le fichier existe, ouvrez-le et affichez son contenu.

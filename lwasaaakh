@@ -1,0 +1,187 @@
+Jupyter notebooks are saved with the .ipynb extension.
+
+
+   Column1  Column2  Column3  ...
+0       1      25    2000   ...
+1       2      30    3000   ...
+2       3      28    1500   ...
+3       4      22    3500   ...
+4       5      35    2500   ...
+
+
+
+
+import pandas as pd
+
+# Correct file path for the Excel file
+file_path = '/home/abdeljalil/Downloads/data-sell4all.xlsx'
+
+# Use the file_path variable to read the Excel file
+data = pd.read_excel(file_path)
+
+# Display the first 5 rows of the DataFrame
+print(data.head())
+
+
+import pandas as pd
+
+# Assuming you already have the data loaded into 'data'
+# Replace 'file_path' with your actual path
+file_path = '/home/abdeljalil/Downloads/data-sell4all.csv'
+data = pd.read_csv(file_path)
+
+# Display number of rows
+print(f"Number of rows: {data.shape[0]}")
+
+# Display column names
+print("Columns of the CSV file:")
+print(data.columns)
+
+# Display data types of fields
+print("Data types of each column:")
+print(data.dtypes)
+
+**************************************************************************************
+**************************************************************************************
+**************************************************************************************
+**************************************************************************************
+**************************************************************************************
+**************************************************************************************
+**************************************************************************************
+
+Résumé Technique des Données
+Nombre de lignes: 65
+
+Cela indique qu'il y a 65 enregistrements ou observations dans le jeu de données.
+Colonnes du fichier CSV:
+
+Pays: Indique le pays d'origine des clients.
+Age: Représente la tranche d'âge des clients, bien que cela soit enregistré comme un objet.
+Genre: Spécifie le genre des clients, également enregistré en tant qu'objet.
+Dépenses des clients: Montre les dépenses effectuées par les clients, enregistré comme un objet.
+Types de données des champs:
+
+Chaque colonne a un type de données spécifique. Ici, toutes les colonnes sont de type object.
+
+
+**************************************************************************************
+**************************************************************************************
+
+partie 2
+
+**************************************************************************************
+
+
+Créer une visualisation des données du graphique à barres qui montre les dépenses
+des clients par pays,
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+file_path = '/home/abdeljalil/Downloads/data-sell4all.xlsx'
+data = pd.read_excel(file_path)
+
+data.columns = data.columns.str.strip()
+
+data['Dépenses des clients'] = pd.to_numeric(data['Dépenses des clients'], errors='coerce')
+
+expenses_by_country = data.groupby('Pays')['Dépenses des clients'].sum().sort_values()
+
+plt.figure(figsize=(10, 6))
+expenses_by_country.plot(kind='bar', color='skyblue')
+
+plt.title('Dépenses des clients par pays')
+plt.xlabel('Pays')
+plt.ylabel('Dépenses des clients (Total)')
+plt.xticks(rotation=45, ha='right')
+
+plt.tight_layout()
+plt.show()
+
+
+**************************************************************************************
+**************************************************************************************
+
+● Nettoyer les lignes avec moins de 10 € de dépenses client : supprimez toutes les
+lignes d’utilisateurs ayant dépensé moins de 10 € sur le site
+
+
+import pandas as pd
+
+file_path = '/home/abdeljalil/Downloads/data-sell4all.xlsx'
+data = pd.read_excel(file_path)
+
+data.columns = data.columns.str.strip()
+
+data['Dépenses des clients'] = pd.to_numeric(data['Dépenses des clients'], errors='coerce')
+
+data_cleaned = data[data['Dépenses des clients'] >= 10]
+
+print(f"Cleaned Data: {data_cleaned.shape[0]} rows remaining")
+print(data_cleaned.head())
+
+
+
+**************************************************************************************
+**************************************************************************************
+
+
+● Nettoyer les doublons : supprimer toutes les lignes qui apparaissent plus d’une fois
+dans les données,
+
+
+
+
+
+import pandas as pd
+
+file_path = '/home/abdeljalil/Downloads/data-sell4all.xlsx'
+data = pd.read_excel(file_path)
+
+data.columns = data.columns.str.strip()
+
+data_cleaned_no_duplicates = data.drop_duplicates()
+
+print(f"Cleaned Data after removing duplicates: {data_cleaned_no_duplicates.shape[0]} rows remaining")
+print(data_cleaned_no_duplicates.head())
+
+
+**************************************************************************************
+**************************************************************************************
+
+● Écrire les données nettoyées dans un nouveau fichier CSV avec uniquement les
+colonnes suivantes :
+○ « Pays »
+○ « Âge »
+○ « Genre »
+○ « Dépenses des clients »
+
+
+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
+
+
+**************************************************************************************
+**************************************************************************************
+
+sort()
+filter()
+map()
+zip()
+reduce()
+reduce(lambda x, y: x * y, liste_nombres)
+split()
+set()
+strip()
+join()
+replace()
+startswith()
+endswith()
+len()
+strip()
+upper()
+append()
+list()
+list(map(lambda x: x * x, liste_valeurs))
+list(map(lambda x: x[0] + x[1], paires))
+get(word, key)
